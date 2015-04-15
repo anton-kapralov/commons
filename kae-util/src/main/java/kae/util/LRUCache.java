@@ -2,6 +2,8 @@ package kae.util;
 
 import java.util.HashMap;
 
+import static kae.util.SimpleLinkedList.Node;
+
 /**
  * LRUCache
  *
@@ -10,36 +12,13 @@ import java.util.HashMap;
  */
 public class LRUCache<K, V> {
 
-  private static class Element<K, V> {
-    public final K key;
-    public V value;
-
-    private Element(K key, V value) {
-      this.key = key;
-      this.value = value;
-    }
-  }
-
-  private static class Node<K, V> {
-    public Node<K, V> previous;
-    public Node<K, V> next;
-    public Element<K, V> element;
-
-    private Node(Element<K, V> element) {
-      this.element = element;
-    }
-
-  }
-
   private final int capacity;
-  private final HashMap<K, Node<K, V>> map;
-
-  private Node<K, V> head;
-  private Node<K, V> tail;
+  private final HashMap<K, Node<Pair<K, V>>> map;
+  private final SimpleLinkedList<Pair<K, V>> list = new SimpleLinkedList<Pair<K, V>>();
 
   public LRUCache(int capacity) {
     this.capacity = capacity;
-    map = new HashMap<K, Node<K, V>>(capacity);
+    map = new HashMap<K, Node<Pair<K, V>>>(capacity);
   }
 
   public int size() {
@@ -51,89 +30,39 @@ public class LRUCache<K, V> {
   }
 
   public V get(K key) {
-    Node<K, V> node = map.get(key);
+    Node<Pair<K, V>> node = map.get(key);
     if (node != null) {
-      final Element<K, V> element = node.element;
-      setFirst(node);
-      return element.value;
+      final Pair<K, V> pair = node.value;
+      list.setFirst(node);
+      return pair.second;
     }
 
     return null;
   }
 
   public void set(K key, V value) {
-    Node<K, V> node = map.get(key);
+    Node<Pair<K, V>> node = map.get(key);
     if (node != null) {
-      final Element element = node.element;
-      setFirst(node);
-      element.value = value;
+      final Pair pair = node.value;
+      list.setFirst(node);
+      pair.second = value;
       return;
     }
 
     if (map.size() == capacity) {
-      Node<K, V> lastNode = removeLast();
+      Node<Pair<K, V>> lastNode = list.removeLast();
       if (lastNode != null) {
-        map.remove(lastNode.element.key);
+        map.remove(lastNode.value.first);
       }
     }
 
-    Node<K, V> newNode = new Node<K, V>(new Element<K, V>(key, value));
-    add(newNode);
+    add(key, value);
   }
 
-  private void add(Node<K, V> node) {
-    addFirst(node);
-    map.put(node.element.key, node);
-  }
-
-  private void setFirst(Node<K, V> node) {
-    if (head != node) {
-      remove(node);
-      add(node);
-    }
-  }
-
-  private void addFirst(Node<K, V> newNode) {
-    if (head == null) {
-      head = newNode;
-      tail = head;
-
-      newNode.next = null;
-      newNode.previous = null;
-    } else {
-      Node<K, V> oldHead = head;
-      head = newNode;
-
-      newNode.next = oldHead;
-      newNode.previous = null;
-      oldHead.previous = newNode;
-    }
-  }
-
-  private void remove(Node<K, V> node) {
-    if (node != null) {
-      if (node == tail) {
-        tail = node.previous;
-      }
-
-      if (node == head) {
-        head = node.next;
-      }
-
-      if (node.next != null) {
-        node.next.previous = node.previous;
-      }
-
-      if (node.previous != null) {
-        node.previous.next = node.next;
-      }
-    }
-  }
-
-  private Node<K, V> removeLast() {
-    Node<K, V> last = tail;
-    remove(last);
-    return last;
+  private void add(K key, V value) {
+    Node<Pair<K, V>> node = new Node<Pair<K, V>>(new Pair<K, V>(key, value));
+    list.addFirst(node);
+    map.put(node.value.first, node);
   }
 
 }
