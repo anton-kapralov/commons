@@ -13,7 +13,7 @@
     <dependency>
       <groupId>kae</groupId>
       <artifactId>kae-util</artifactId>
-      <version>0.5.0.0</version>
+      <version>0.5.0.1</version>
     </dependency>
 
     <dependency>
