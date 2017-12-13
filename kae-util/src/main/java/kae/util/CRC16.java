@@ -4,7 +4,7 @@ package kae.util;
  * CRC16
  *
  * @author Kapralov A.
- *         07.04.2014 12:48
+ * 07.04.2014 12:48
  */
 public class CRC16 {
 

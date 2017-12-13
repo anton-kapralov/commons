@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 22.03.13
  */
@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  * @author A. Kapralov
- *         22.03.13 16:35
+ * 22.03.13 16:35
  */
 public class SQLUtils {
 

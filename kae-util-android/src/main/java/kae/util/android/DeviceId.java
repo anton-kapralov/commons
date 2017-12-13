@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 04.06.13
  */
@@ -9,7 +9,7 @@ package kae.util.android;
 
 /**
  * @author A. Kapralov
- *         04.06.13 15:50
+ * 04.06.13 15:50
  */
 public class DeviceId {
 

@@ -1,17 +1,16 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 25.11.2010
  */
 
 package kae.util.swing;
 
-import java.awt.*;
-import java.awt.geom.AffineTransform;
-
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicLabelUI;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 /**
  * @author A. Kapralov 25.11.2010 19:43:57

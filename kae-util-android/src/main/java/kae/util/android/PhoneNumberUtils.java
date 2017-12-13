@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 14.04.13
  */
@@ -9,7 +9,7 @@ package kae.util.android;
 
 /**
  * @author A. Kapralov
- *         14.04.13 20:31
+ * 14.04.13 20:31
  */
 public class PhoneNumberUtils {
 

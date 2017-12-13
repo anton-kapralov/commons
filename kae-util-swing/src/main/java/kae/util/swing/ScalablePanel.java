@@ -1,14 +1,13 @@
 package kae.util.swing;
 
-import java.awt.*;
-
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * ScalablePanel
  *
  * @author Kapralov A.
- *         01.10.2014 15:00
+ * 01.10.2014 15:00
  */
 public class ScalablePanel extends JPanel implements Scalable {
 

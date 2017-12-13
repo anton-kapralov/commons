@@ -1,17 +1,16 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 21.11.11
  */
 
 package kae.util.swing;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.net.URL;
-
-import javax.swing.*;
 
 /**
  * @author A. Kapralov 21.11.11 20:05

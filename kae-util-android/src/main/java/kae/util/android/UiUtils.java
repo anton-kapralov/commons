@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 31.08.12
  */
@@ -12,17 +12,16 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.EditText;
-
 import kae.util.StringUtils;
 
 /**
  * @author A. Kapralov
- *         31.08.12 17:06
+ * 31.08.12 17:06
  */
 public class UiUtils {
 
   public static AlertDialog showAlertDialog(Context context, int titleId, int iconId,
-      String message) {
+                                            String message) {
     AlertDialog.Builder builder = new AlertDialog.Builder(context);
     builder.setTitle(titleId);
     builder.setIcon(iconId);
@@ -35,8 +34,8 @@ public class UiUtils {
   }
 
   public static AlertDialog showYesNoDialog(Context context, int titleId, int iconId,
-      String message,
-      DialogInterface.OnClickListener yesListener, DialogInterface.OnClickListener noListener) {
+                                            String message,
+                                            DialogInterface.OnClickListener yesListener, DialogInterface.OnClickListener noListener) {
     AlertDialog.Builder builder = new AlertDialog.Builder(context);
     builder.setTitle(titleId);
     builder.setIcon(iconId);

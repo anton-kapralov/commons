@@ -7,7 +7,7 @@ import java.io.StringWriter;
  * ExceptionUtils
  *
  * @author Kapralov A.
- *         11.03.2014 16:52
+ * 11.03.2014 16:52
  */
 public class ExceptionUtils {
 

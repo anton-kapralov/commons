@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 22.06.2010
  */
@@ -10,7 +10,9 @@ package kae.util;
 import java.util.Calendar;
 import java.util.Date;
 
-/** @author A. Kapralov 22.06.2010 15:03:10 */
+/**
+ * @author A. Kapralov 22.06.2010 15:03:10
+ */
 public class DateUtils {
 
   public static String toUnixTimeString(Date date) {

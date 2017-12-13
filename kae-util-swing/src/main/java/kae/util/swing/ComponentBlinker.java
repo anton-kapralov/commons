@@ -1,16 +1,16 @@
 package kae.util.swing;
 
-import java.awt.*;
+import kae.util.concurrency.MorseCodeAbstractPlayer;
 
 import javax.swing.*;
+import java.awt.*;
 
-import kae.util.MorseCodeAbstractPlayer;
 
 /**
  * ComponentBlinker
  *
  * @author Kapralov A.
- *         10.12.2014 17:23
+ * 10.12.2014 17:23
  */
 public class ComponentBlinker extends MorseCodeAbstractPlayer {
 

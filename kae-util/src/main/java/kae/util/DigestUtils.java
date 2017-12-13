@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 17.05.12
  */
@@ -10,7 +10,9 @@ package kae.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/** @author A. Kapralov 17.05.12 15:46 */
+/**
+ * @author A. Kapralov 17.05.12 15:46
+ */
 public class DigestUtils {
 
   private static final char[] HEX_CHAR =

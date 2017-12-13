@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 31.08.12
  */
@@ -11,7 +11,7 @@ import android.os.AsyncTask;
 
 /**
  * @author A. Kapralov
- *         31.08.12 14:51
+ * 31.08.12 14:51
  */
 public class AsyncTaskExecutor extends AsyncTask<Void, Void, Void> {
 

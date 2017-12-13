@@ -1,19 +1,19 @@
 package kae.util.android;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
 /**
  * GeoLocationUtils
  *
  * @author Kapralov A.
- *         25.11.2013 16:38
+ * 25.11.2013 16:38
  */
 public class GeoLocationUtils {
 

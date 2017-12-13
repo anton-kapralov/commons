@@ -1,11 +1,10 @@
 package kae.util.db.sequence;
 
+import javax.sql.DataSource;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
-
-import javax.sql.DataSource;
 
 class SequenceImpl implements Sequence {
 
@@ -25,8 +24,8 @@ class SequenceImpl implements Sequence {
   }
 
   /**
-   * @inheritDoc
    * @param pool
+   * @inheritDoc
    */
   public void reserve(IdentifierPool pool) throws SequenceException {
     try {

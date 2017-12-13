@@ -1,15 +1,13 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 03.05.13
  */
 
 package kae.util.android;
 
-import java.io.IOException;
-import java.io.InputStream;
-
+import kae.util.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -20,11 +18,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import kae.util.StreamUtils;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author A. Kapralov
- *         03.05.13 19:17
+ * 03.05.13 19:17
  */
 public class RestUtils {
 
@@ -80,9 +79,9 @@ public class RestUtils {
         // get entity contents and convert it to string
         in = entity.getContent();
         if (encoding != null) {
-          result = StreamUtils.readStream(in, encoding);
+          result = IOUtils.readStream(in, encoding);
         } else {
-          result = StreamUtils.readStream(in);
+          result = IOUtils.readStream(in);
         }
         // Closing the input stream will trigger connection release
       } finally {

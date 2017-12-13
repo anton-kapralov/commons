@@ -1,16 +1,15 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 10.12.11
  */
 
 package kae.util.swing;
 
-import java.util.ArrayList;
-
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 
 /**
  * @author A. Kapralov 10.12.11 17:48
@@ -22,8 +21,8 @@ public abstract class ObjectTableModel<ObjectClass, ObjectController> extends Ab
   protected ArrayList<ObjectClass> objects;
 
   public ObjectTableModel(ObjectController controller,
-      ObjectTableMetaColumn<ObjectClass, ObjectController>[] metaColumns,
-      ArrayList<ObjectClass> objects) {
+                          ObjectTableMetaColumn<ObjectClass, ObjectController>[] metaColumns,
+                          ArrayList<ObjectClass> objects) {
     this.controller = controller;
     this.metaColumns = metaColumns;
     this.objects = objects;

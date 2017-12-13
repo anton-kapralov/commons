@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 06.05.13
  */
@@ -9,7 +9,7 @@ package kae.util.android;
 
 /**
  * @author A. Kapralov
- *         06.05.13 18:05
+ * 06.05.13 18:05
  */
 public class BatteryInfo {
 

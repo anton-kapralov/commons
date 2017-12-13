@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 04.03.13
  */
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 /**
  * @author A. Kapralov
- *         04.03.13 12:30
+ * 04.03.13 12:30
  */
 public class TestDigestUtils {
 

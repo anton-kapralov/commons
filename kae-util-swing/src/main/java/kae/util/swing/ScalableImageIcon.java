@@ -6,7 +6,7 @@ import java.net.URL;
 
 /**
  * @author eiv
- *         09.10.2014.
+ * 09.10.2014.
  */
 public class ScalableImageIcon extends ImageIcon implements Scalable {
   private boolean scaled = false;

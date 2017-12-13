@@ -4,7 +4,7 @@ package kae.util;
  * CheckResult
  *
  * @author Kapralov A.
- *         28.02.2014 13:30
+ * 28.02.2014 13:30
  */
 public class CheckResult {
 

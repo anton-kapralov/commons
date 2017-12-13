@@ -1,16 +1,15 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 26.11.11
  */
 
 package kae.util.swing;
 
-import java.util.Locale;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
+import java.util.Locale;
 
 /**
  * @author A. Kapralov 26.11.11 14:11

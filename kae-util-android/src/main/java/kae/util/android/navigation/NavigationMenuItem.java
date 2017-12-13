@@ -15,7 +15,7 @@ public class NavigationMenuItem implements NavigationDrawerItem {
   private boolean checkable;
 
   public NavigationMenuItem(int id, int labelId, int iconId, boolean updateActionBar,
-      boolean checkable) {
+                            boolean checkable) {
     this.id = id;
     this.labelId = labelId;
     this.iconId = iconId;

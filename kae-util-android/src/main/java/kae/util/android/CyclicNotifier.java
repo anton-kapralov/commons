@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 19.09.13
  */
@@ -13,9 +13,9 @@ import android.net.Uri;
 import android.os.Vibrator;
 
 /**
-* @author A. Kapralov
-*         19.09.13 18:53
-*/
+ * @author A. Kapralov
+ * 19.09.13 18:53
+ */
 public class CyclicNotifier {
 
   private final Context context;

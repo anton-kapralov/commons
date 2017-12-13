@@ -6,7 +6,7 @@ import org.junit.Test;
  * TestCRC16Modbus
  *
  * @author Kapralov A.
- *         07.04.2014 18:58
+ * 07.04.2014 18:58
  */
 public class TestCRC16Modbus {
 

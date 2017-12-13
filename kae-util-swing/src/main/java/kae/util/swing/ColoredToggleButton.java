@@ -1,14 +1,13 @@
 package kae.util.swing;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javax.swing.*;
-
 /**
  * @author eiv
- *         20.06.14.
+ * 20.06.14.
  */
 public class ColoredToggleButton extends JToggleButton {
 

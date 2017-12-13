@@ -1,13 +1,11 @@
 package kae.util.swing;
 
-import java.awt.*;
-
 import javax.swing.*;
-import javax.swing.table.JTableHeader;
+import java.awt.*;
 
 /**
  * @author eiv
- *         19.05.14.
+ * 19.05.14.
  */
 public class ScaleController {
 
@@ -26,7 +24,7 @@ public class ScaleController {
 
   private ScaleController(boolean autoScale, int originalWidth, int originalHeight, float scaleFactor) {
     this.autoScale = autoScale;
-    if(autoScale) {
+    if (autoScale) {
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
       //eiv разрешение на которое надо оптимизировать
       //Dimension screenSize = new Dimension(1024, 768);
@@ -107,10 +105,10 @@ public class ScaleController {
   }
 
   public ScalableImageIcon scale(ScalableImageIcon scalableImageIcon) {
-    if(scalableImageIcon.isScaled()) {
+    if (scalableImageIcon.isScaled()) {
       return scalableImageIcon;
     }
-    if(scalableImageIcon != null) {
+    if (scalableImageIcon != null) {
       final int width = (int) (scalableImageIcon.getIconWidth() * scaleFactor);
       final int height = (int) (scalableImageIcon.getIconHeight() * scaleFactor);
       scalableImageIcon.setImage(scalableImageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));

@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 20.03.13
  */
@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * @author A. Kapralov
- *         20.03.13 13:28
+ * 20.03.13 13:28
  */
 public class DataChunk<T> implements Serializable {
 

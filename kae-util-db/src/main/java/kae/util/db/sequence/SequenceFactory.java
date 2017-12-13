@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 04.03.13
  */
@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 
 /**
  * @author A. Kapralov
- *         04.03.13 13:46
+ * 04.03.13 13:46
  */
 public class SequenceFactory {
 

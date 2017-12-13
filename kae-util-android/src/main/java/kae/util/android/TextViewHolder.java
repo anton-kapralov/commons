@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 11.06.13
  */
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 /**
  * @author A. Kapralov
- *         11.06.13 19:17
+ * 11.06.13 19:17
  */
 public class TextViewHolder {
 

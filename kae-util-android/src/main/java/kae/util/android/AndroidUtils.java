@@ -1,19 +1,11 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 18.04.13
  */
 
 package kae.util.android;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -33,12 +25,19 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.TabHost;
+import kae.util.IOUtils;
 
-import kae.util.StreamUtils;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author A. Kapralov
- *         18.04.13 10:56
+ * 18.04.13 10:56
  */
 public class AndroidUtils {
 
@@ -99,7 +98,7 @@ public class AndroidUtils {
   }
 
   public static void savePreference(Context context, String preferenceName, String key,
-      boolean value) {
+                                    boolean value) {
     SharedPreferences sharedPreferences =
         context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -108,7 +107,7 @@ public class AndroidUtils {
   }
 
   public static void savePreference(Context context, String preferenceName, String key,
-      long value) {
+                                    long value) {
     SharedPreferences sharedPreferences =
         context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -117,7 +116,7 @@ public class AndroidUtils {
   }
 
   public static void savePreference(Context context, String preferenceName, String key,
-      int value) {
+                                    int value) {
     SharedPreferences sharedPreferences =
         context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -126,7 +125,7 @@ public class AndroidUtils {
   }
 
   public static void savePreference(Context context, String preferenceName, String key,
-      String value) {
+                                    String value) {
     SharedPreferences sharedPreferences =
         context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -135,12 +134,12 @@ public class AndroidUtils {
   }
 
   public static void showNotification(Context context, int id, int icon, String text,
-      PendingIntent contentIntent, String contentTitle, String contentText, int flags) {
+                                      PendingIntent contentIntent, String contentTitle, String contentText, int flags) {
     showNotification(context, id, icon, text, contentIntent, contentTitle, contentText, flags, null);
   }
 
   public static void showNotification(Context context, int id, int icon, String text,
-      PendingIntent contentIntent, String contentTitle, String contentText, int flags, Uri soundUri) {
+                                      PendingIntent contentIntent, String contentTitle, String contentText, int flags, Uri soundUri) {
     Notification notification = new Notification(icon, text, System.currentTimeMillis());
     notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
@@ -229,7 +228,7 @@ public class AndroidUtils {
       in = assetManager.open(fileName);
       out = context.openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
 
-      StreamUtils.transfuse(in, out);
+      IOUtils.transfuse(in, out);
       out.flush();
     } finally {
       if (in != null) {
@@ -248,7 +247,7 @@ public class AndroidUtils {
     try {
       in = assetManager.open(fileName);
 
-      return StreamUtils.readStream(in, encoding);
+      return IOUtils.readStream(in, encoding);
     } finally {
       if (in != null) {
         in.close();
@@ -274,7 +273,7 @@ public class AndroidUtils {
   }
 
   public static TabHost.TabSpec newTab(TabHost tabHost, String tag, String label, Drawable icon,
-      int tabContentId) {
+                                       int tabContentId) {
     TabHost.TabSpec tabSpec = tabHost.newTabSpec(tag);
     if (icon != null) {
       tabSpec.setIndicator(label, icon);

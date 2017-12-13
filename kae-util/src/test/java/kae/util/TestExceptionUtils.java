@@ -4,7 +4,7 @@ package kae.util;
  * TestExceptionUtils
  *
  * @author Kapralov A.
- *         11.03.2014 16:54
+ * 11.03.2014 16:54
  */
 public class TestExceptionUtils {
 

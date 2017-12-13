@@ -16,7 +16,7 @@ import java.util.Date;
 
 /**
  * @author A. Kapralov
- *         27.01.15 21:25
+ * 27.01.15 21:25
  */
 public class JsonUtils {
 

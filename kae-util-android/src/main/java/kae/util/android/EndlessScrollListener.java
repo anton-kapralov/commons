@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 15.12.13
  */
@@ -11,7 +11,7 @@ import android.widget.AbsListView;
 
 /**
  * @author A. Kapralov
- *         15.12.13 19:23
+ * 15.12.13 19:23
  */
 public class EndlessScrollListener implements AbsListView.OnScrollListener {
 
@@ -40,7 +40,7 @@ public class EndlessScrollListener implements AbsListView.OnScrollListener {
 
   @Override
   public void onScroll(AbsListView view, int firstVisibleItem,
-      int visibleItemCount, int totalItemCount) {
+                       int visibleItemCount, int totalItemCount) {
     if (loading) {
       if (totalItemCount > previousTotal) {
         loading = false;

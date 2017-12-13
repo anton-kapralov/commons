@@ -1,20 +1,19 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 15.03.13
  */
 
 package kae.util.db;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
 /**
  * @author A. Kapralov
- *         15.03.13 17:20
+ * 15.03.13 17:20
  */
 public abstract class AbstractDataFacade {
 

@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 17.05.12
  */
@@ -10,7 +10,9 @@ package kae.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-/** @author A. Kapralov 17.05.12 15:12 */
+/**
+ * @author A. Kapralov 17.05.12 15:12
+ */
 public class TestSecurityUtils {
 
   @Test

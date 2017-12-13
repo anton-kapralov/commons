@@ -1,13 +1,15 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 17.05.12
  */
 
 package kae.util;
 
-/** @author A. Kapralov 17.05.12 15:01 */
+/**
+ * @author A. Kapralov 17.05.12 15:01
+ */
 public class SecurityUtils {
 
   /**
@@ -15,7 +17,6 @@ public class SecurityUtils {
    *
    * @param password password for encode.
    * @param salt     salt using in formula.
-   *
    * @return encoded password.
    */
   public static String encodePassword(String password, String salt) {

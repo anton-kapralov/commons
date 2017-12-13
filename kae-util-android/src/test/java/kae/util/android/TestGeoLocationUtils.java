@@ -7,7 +7,7 @@ import org.junit.Test;
  * TestGeoLocationUtils
  *
  * @author Kapralov A.
- *         30.05.2014 00:25
+ * 30.05.2014 00:25
  */
 public class TestGeoLocationUtils {
 

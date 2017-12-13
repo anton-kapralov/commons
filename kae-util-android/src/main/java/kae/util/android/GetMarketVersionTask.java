@@ -1,20 +1,20 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 29.07.13
  */
 
 package kae.util.android;
 
-import java.io.IOException;
-
 import android.content.Context;
 import android.util.Log;
 
+import java.io.IOException;
+
 /**
  * @author A. Kapralov
- *         29.07.13 13:07
+ * 29.07.13 13:07
  */
 public class GetMarketVersionTask implements CancellableTask {
 

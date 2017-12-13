@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 03.05.13
  */
@@ -9,7 +9,7 @@ package kae.util.android;
 
 /**
  * @author A. Kapralov
- *         03.05.13 20:43
+ * 03.05.13 20:43
  */
 public abstract class AsyncCycle {
 

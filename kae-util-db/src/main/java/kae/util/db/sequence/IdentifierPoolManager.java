@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 04.03.13
  */
@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * @author A. Kapralov
- *         04.03.13 13:54
+ * 04.03.13 13:54
  */
 public class IdentifierPoolManager {
 

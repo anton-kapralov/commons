@@ -7,7 +7,7 @@ import org.junit.Test;
  * TestLimitedQueue
  *
  * @author Kapralov A.
- *         03.07.2014 20:32
+ * 03.07.2014 20:32
  */
 public class TestLimitedQueue {
 

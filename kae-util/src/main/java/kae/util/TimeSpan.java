@@ -1,6 +1,6 @@
 /*
- * 
- * 
+ *
+ *
  * Kapralov A.
  * 15.03.14
  */
@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * @author A. Kapralov
- *         15.03.14 13:43
+ * 15.03.14 13:43
  */
 public class TimeSpan {
 

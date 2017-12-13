@@ -1,13 +1,13 @@
 package kae.util.android;
 
-import java.io.IOException;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+
+import java.io.IOException;
 
 public class UpdateChecker {
 
@@ -68,7 +68,7 @@ public class UpdateChecker {
   }
 
   private void askForUpdate(final Context ctx, String marketVersionName,
-      String existingVersionName) {
+                            String existingVersionName) {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(ctx);
     alertDialog.setTitle("Доступно обновление");
     alertDialog.setMessage(String.format(
