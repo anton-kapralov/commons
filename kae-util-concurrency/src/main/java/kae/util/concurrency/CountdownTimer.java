@@ -30,7 +30,7 @@ public class CountdownTimer extends RunnableCycle {
   /**
    * Оставшееся время.
    */
-  private long timeRemaining;
+  private volatile long timeRemaining;
 
   /**
    * Слушатель тиков.

@@ -18,17 +18,13 @@ public abstract class RunnableCycle implements Runnable {
 
   private final Object lock = new Object();
 
-  private volatile boolean active;
+  private volatile boolean active = false;
 
-  private long timeout;
+  private volatile long timeout;
 
-  public RunnableCycle() {
-    active = false;
-    timeout = 0;
-  }
+  public RunnableCycle() {}
 
   public RunnableCycle(long timeout) {
-    this();
     this.timeout = timeout;
   }
 
@@ -54,11 +50,15 @@ public abstract class RunnableCycle implements Runnable {
       return;
     }
 
-    new Thread(this).start();
     active = true;
+    new Thread(this).start();
   }
 
   public void stop() {
+    if (!active) {
+      return;
+    }
+
     active = false;
     synchronized (lock) {
       lock.notify();
@@ -79,7 +79,8 @@ public abstract class RunnableCycle implements Runnable {
       try {
         lock.wait(timeout);
       } catch (InterruptedException e) {
-        // Do nothing.
+        // restore interrupted status
+        Thread.currentThread().interrupt();
       }
     }
   }
