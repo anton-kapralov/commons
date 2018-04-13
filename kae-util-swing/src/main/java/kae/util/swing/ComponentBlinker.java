@@ -1,6 +1,6 @@
 package kae.util.swing;
 
-import kae.util.concurrency.MorseCodeAbstractPlayer;
+import kae.util.concurrency.AbstractBlinker;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ import java.awt.*;
  * @author Kapralov A.
  * 10.12.2014 17:23
  */
-public class ComponentBlinker extends MorseCodeAbstractPlayer {
+public class ComponentBlinker extends AbstractBlinker {
 
   protected final JComponent component;
   private final Color defaultColor;
@@ -26,8 +26,8 @@ public class ComponentBlinker extends MorseCodeAbstractPlayer {
   }
 
   @Override
-  protected void dotOrDash(boolean dot) {
-    component.setBackground(dot ? color : defaultColor);
+  protected void blink(boolean opened) {
+    SwingUtilities.invokeLater(() -> component.setBackground(opened ? color : defaultColor));
   }
 
 }

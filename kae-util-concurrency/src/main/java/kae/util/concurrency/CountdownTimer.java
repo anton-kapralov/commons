@@ -9,107 +9,81 @@
 
 package kae.util.concurrency;
 
-import net.jcip.annotations.NotThreadSafe;
-
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Таймер обратного отсчета.
+ * Countdown timer.
  *
  * @author Kapralov A.
  */
-@NotThreadSafe
 public class CountdownTimer extends RunnableCycle {
 
-  /**
-   * Таймаут по умолчанию.
-   */
   private static final long DEFAULT_TIME_OUT = 100;
 
-  /**
-   * Оставшееся время.
-   */
-  private volatile long timeRemaining;
+  private final AtomicLong timeRemaining;
 
-  /**
-   * Слушатель тиков.
-   */
-  private transient final List<CountdownTickedListener> countdownTickedListeners =
-      new LinkedList<CountdownTickedListener>();
-  /**
-   * Слушатель окончания таймера.
-   */
-  private transient final List<CountdownTimeOverListener> countdownTimeOverListeners =
-      new LinkedList<CountdownTimeOverListener>();
-
-  /**
-   * Конструктор по умолчанию.
-   */
   public CountdownTimer() {
     this(DEFAULT_TIME_OUT);
   }
 
-  /**
-   * Инициализирующий конструктор.
-   *
-   * @param _timeOut таймаут.
-   */
-  public CountdownTimer(long _timeOut) {
-    super(_timeOut);
+  public CountdownTimer(long timeOut) {
+    this(0, timeOut);
   }
 
   public CountdownTimer(long timeRemaining, long timeout) {
     super(timeout);
-    this.timeRemaining = timeRemaining;
+    this.timeRemaining = new AtomicLong(timeRemaining);
   }
 
-  /**
-   * Возвращает оставшееся время.
-   *
-   * @return оставшееся время.
-   */
   public long getTimeRemaining() {
-    return timeRemaining;
+    return timeRemaining.get();
   }
 
-  /**
-   * Устанавливает оставшееся время.
-   *
-   * @param _timeRemaining оставшееся время.
-   */
-  public void setTimeRemaining(long _timeRemaining) {
-    timeRemaining = _timeRemaining;
+  public void setTimeRemaining(long timeRemaining) {
+    this.timeRemaining.set(timeRemaining);
   }
 
-  protected void iterate() {
-    if (timeRemaining <= 0) {
-      stop();
-      fireTimeOver();
-    } else {
-      timeRemaining -= getTimeout();
-      fireTicked();
-    }
+  protected void loop() {
+    long timeRemainingLocal;
+    do {
+      timeRemainingLocal = timeRemaining.get();
+      if (timeRemainingLocal <= 0) {
+        stop();
+        fireTimeOver();
+        return;
+      }
+    } while (!this.timeRemaining.compareAndSet(timeRemainingLocal, timeRemainingLocal - getTimeout()));
+
+    fireTicked();
   }
 
-  //<editor-fold defaultstate="collapsed" desc=" Поддержка события 'Счетчик сработал' ">
+  //<editor-fold defaultstate="collapsed" desc=" Event 'Countdown ticked' ">
+
+  private transient final List<CountdownTickedListener> countdownTickedListeners =
+      new ArrayList<>(8);
 
   /**
    * Registers CountdownTickedListener to receive events.
    *
-   * @param _listener The listener to register.
+   * @param listener The listener to register.
    */
-  public void addCountdownTickedListener(CountdownTickedListener _listener) {
-    countdownTickedListeners.add(_listener);
+  public void addCountdownTickedListener(CountdownTickedListener listener) {
+    synchronized (countdownTickedListeners) {
+      countdownTickedListeners.add(listener);
+    }
   }
 
   /**
    * Removes CountdownTickedListener from the list of listeners.
    *
-   * @param _listener The listener to remove.
+   * @param listener The listener to remove.
    */
-  public void removeCountdownTickedListener(CountdownTickedListener _listener) {
-    countdownTickedListeners.remove(_listener);
+  public void removeCountdownTickedListener(CountdownTickedListener listener) {
+    synchronized (countdownTickedListeners) {
+      countdownTickedListeners.remove(listener);
+    }
   }
 
   /**
@@ -129,24 +103,31 @@ public class CountdownTimer extends RunnableCycle {
 
   //</editor-fold>
 
-  //<editor-fold defaultstate="collapsed" desc=" Поддержка события 'Счетчик завершился' ">
+  //<editor-fold defaultstate="collapsed" desc=" Event 'Countdown time is over' ">
+
+  private transient final List<CountdownTimeOverListener> countdownTimeOverListeners =
+      new ArrayList<>(8);
 
   /**
    * Registers CountdownTimeOverListener to receive events.
    *
-   * @param _listener The listener to register.
+   * @param listener The listener to register.
    */
-  public void addCountdownTimeOverListener(CountdownTimeOverListener _listener) {
-    countdownTimeOverListeners.add(_listener);
+  public void addCountdownTimeOverListener(CountdownTimeOverListener listener) {
+    synchronized (countdownTimeOverListeners) {
+      countdownTimeOverListeners.add(listener);
+    }
   }
 
   /**
    * Removes CountdownTimeOverListener from the list of listeners.
    *
-   * @param _listener The listener to remove.
+   * @param listener The listener to remove.
    */
-  public void removeCountdownTimeOverListener(CountdownTimeOverListener _listener) {
-    countdownTimeOverListeners.remove(_listener);
+  public void removeCountdownTimeOverListener(CountdownTimeOverListener listener) {
+    synchronized (countdownTimeOverListeners) {
+      countdownTimeOverListeners.remove(listener);
+    }
   }
 
   /**

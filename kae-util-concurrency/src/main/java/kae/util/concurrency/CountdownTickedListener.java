@@ -10,19 +10,8 @@
 
 package kae.util.concurrency;
 
-/**
- * Cлушатель "тиков" таймера обратного отсчета.
- *
- * @author Kapralov A.
- */
 public interface CountdownTickedListener {
 
-  /**
-   * "Тик".
-   *
-   * @param _source таймер обратного отсчета, на котором сработало
-   *                это событие.
-   */
-  void ticked(final CountdownTimer _source);
+  void ticked(final CountdownTimer timer);
 
 }

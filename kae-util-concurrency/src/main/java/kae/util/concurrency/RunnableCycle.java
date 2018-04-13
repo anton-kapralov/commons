@@ -8,83 +8,79 @@
 
 package kae.util.concurrency;
 
-import net.jcip.annotations.NotThreadSafe;
+import net.jcip.annotations.GuardedBy;
 
 /**
  * @author Kapralov A.
  */
-@NotThreadSafe
-public abstract class RunnableCycle implements Runnable {
+public abstract class RunnableCycle {
 
-  private final Object lock = new Object();
+  private final LoopThenIdleRunner loopThenIdleRunner;
 
-  private volatile boolean active = false;
+  @GuardedBy("this")
+  private Thread thread;
 
-  private volatile long timeout;
-
-  public RunnableCycle() {}
+  public RunnableCycle() {
+    this(0);
+  }
 
   public RunnableCycle(long timeout) {
-    this.timeout = timeout;
+    loopThenIdleRunner = new LoopThenIdleRunner(timeout);
   }
 
-  public boolean isActive() {
-    return active;
-  }
-
-  /**
-   * Возвращает таймаут.
-   *
-   * @return таймаут.
-   */
   public long getTimeout() {
-    return timeout;
+    return loopThenIdleRunner.timeout;
   }
 
-  public void setTimeout(long timeout) {
-    this.timeout = timeout;
+  public synchronized boolean isActive() {
+    return thread != null && !thread.isInterrupted();
   }
 
-  public void start() {
-    if (active) {
+  public synchronized void start() {
+    if (isActive()) {
       return;
     }
 
-    active = true;
-    new Thread(this).start();
+    thread = new Thread(loopThenIdleRunner);
+    thread.start();
   }
 
-  public void stop() {
-    if (!active) {
+  public synchronized void stop() {
+    if (!isActive()) {
       return;
     }
 
-    active = false;
-    synchronized (lock) {
-      lock.notify();
-    }
+    thread.interrupt();
+    thread = null;
   }
 
-  public void run() {
-    while (active) {
-      iterate();
-      if (timeout > 0) {
-        idle();
+  protected abstract void loop();
+
+  private final class LoopThenIdleRunner implements Runnable {
+
+    private final long timeout;
+
+    private LoopThenIdleRunner(long timeout) {
+      this.timeout = timeout;
+    }
+
+    public void run() {
+      while (!Thread.currentThread().isInterrupted()) {
+        loop();
+        if (timeout > 0) {
+          idle();
+        }
       }
     }
-  }
 
-  private void idle() {
-    synchronized (lock) {
+    private void idle() {
       try {
-        lock.wait(timeout);
+        Thread.sleep(timeout);
       } catch (InterruptedException e) {
         // restore interrupted status
         Thread.currentThread().interrupt();
       }
     }
   }
-
-  protected abstract void iterate();
 
 }
