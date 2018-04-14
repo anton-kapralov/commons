@@ -5,13 +5,13 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  *
  */
-public class Throttle {
+public class RateLimiter {
 
   private final long minimalInterval;
 
   private final AtomicLong lastRunTime = new AtomicLong();
 
-  public Throttle(float rate) {
+  public RateLimiter(float rate) {
     this.minimalInterval = (long) (1000 / rate);
   }
 

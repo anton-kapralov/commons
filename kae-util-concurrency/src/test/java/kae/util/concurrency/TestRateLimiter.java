@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  *
  */
-public class TestThrottle {
+public class TestRateLimiter {
 
   @Test
   void testThrottling() throws Exception {
@@ -22,7 +22,7 @@ public class TestThrottle {
     final int threadCount = 16;
     final int taskCount = 100;
 
-    final Throttle throttle = new Throttle(rate);
+    final RateLimiter rateLimiter = new RateLimiter(rate);
 
     final ExecutorService executorService = Executors.newFixedThreadPool(threadCount, new ThreadFactory() {
 
@@ -32,7 +32,7 @@ public class TestThrottle {
       @Override
       public Thread newThread(Runnable r) {
         final Thread thread = defaultThreadFactory.newThread(r);
-        thread.setName("TestThrottle-Thread-" + counter.getAndIncrement());
+        thread.setName("TestRateLimiter-Thread-" + counter.getAndIncrement());
         return thread;
       }
     });
@@ -42,7 +42,7 @@ public class TestThrottle {
     for (int i = 0; i < taskCount; i++) {
       executorService.submit(() -> {
         try {
-          throttle.run(counter);
+          rateLimiter.run(counter);
         } catch (InterruptedException e) {
           // restore interrupted status
           Thread.currentThread().interrupt();
