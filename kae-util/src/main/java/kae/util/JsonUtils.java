@@ -14,10 +14,7 @@ import org.json.JSONObject;
 import java.text.DateFormat;
 import java.util.Date;
 
-/**
- * @author A. Kapralov
- * 27.01.15 21:25
- */
+/** @author A. Kapralov 27.01.15 21:25 */
 public class JsonUtils {
 
   public static JSONObject nullableJSONObject(JSONObject o, String key) throws JSONException {
@@ -49,7 +46,9 @@ public class JsonUtils {
       Object object = o.get(key);
 
       try {
-        return object instanceof Number ? ((Number) object).intValue() : Integer.parseInt((String) object);
+        return object instanceof Number
+            ? ((Number) object).intValue()
+            : Integer.parseInt((String) object);
       } catch (NumberFormatException e) {
         return 0;
       }
@@ -63,7 +62,9 @@ public class JsonUtils {
       Object object = o.get(key);
 
       try {
-        return object instanceof Number ? ((Number) object).floatValue() : Float.parseFloat((String) object);
+        return object instanceof Number
+            ? ((Number) object).floatValue()
+            : Float.parseFloat((String) object);
       } catch (NumberFormatException e) {
         return 0;
       }
@@ -85,6 +86,5 @@ public class JsonUtils {
       e.printStackTrace();
       return null;
     }
-
   }
 }

@@ -7,9 +7,7 @@
 
 package kae.util.swing;
 
-/**
- * @author A. Kapralov 11.01.12 10:28
- */
+/** @author A. Kapralov 11.01.12 10:28 */
 public class TableCellComboBoxObjectValue<T> {
 
   private T value;
@@ -42,7 +40,6 @@ public class TableCellComboBoxObjectValue<T> {
     TableCellComboBoxObjectValue that = (TableCellComboBoxObjectValue) o;
 
     return !(value != null ? !value.equals(that.value) : that.value != null);
-
   }
 
   @Override
@@ -53,5 +50,4 @@ public class TableCellComboBoxObjectValue<T> {
   @SuppressWarnings("unchecked")
   public static final TableCellComboBoxObjectValue EMPTY =
       new TableCellComboBoxObjectValue(null, "");
-
 }

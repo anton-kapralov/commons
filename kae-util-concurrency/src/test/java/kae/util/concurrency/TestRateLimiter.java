@@ -10,9 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- *
- */
+/** */
 public class TestRateLimiter {
 
   @Test
@@ -24,30 +22,34 @@ public class TestRateLimiter {
 
     final RateLimiter rateLimiter = new RateLimiter(rate);
 
-    final ExecutorService executorService = Executors.newFixedThreadPool(threadCount, new ThreadFactory() {
+    final ExecutorService executorService =
+        Executors.newFixedThreadPool(
+            threadCount,
+            new ThreadFactory() {
 
-      private final ThreadFactory defaultThreadFactory = Executors.defaultThreadFactory();
-      private final AtomicInteger counter = new AtomicInteger();
+              private final ThreadFactory defaultThreadFactory = Executors.defaultThreadFactory();
+              private final AtomicInteger counter = new AtomicInteger();
 
-      @Override
-      public Thread newThread(Runnable r) {
-        final Thread thread = defaultThreadFactory.newThread(r);
-        thread.setName("TestRateLimiter-Thread-" + counter.getAndIncrement());
-        return thread;
-      }
-    });
+              @Override
+              public Thread newThread(Runnable r) {
+                final Thread thread = defaultThreadFactory.newThread(r);
+                thread.setName("TestRateLimiter-Thread-" + counter.getAndIncrement());
+                return thread;
+              }
+            });
 
     final Counter counter = new Counter();
 
     for (int i = 0; i < taskCount; i++) {
-      executorService.submit(() -> {
-        try {
-          rateLimiter.run(counter);
-        } catch (InterruptedException e) {
-          // restore interrupted status
-          Thread.currentThread().interrupt();
-        }
-      });
+      executorService.submit(
+          () -> {
+            try {
+              rateLimiter.run(counter);
+            } catch (InterruptedException e) {
+              // restore interrupted status
+              Thread.currentThread().interrupt();
+            }
+          });
     }
 
     TimeUnit.SECONDS.sleep(timeout);
@@ -66,5 +68,4 @@ public class TestRateLimiter {
       value.incrementAndGet();
     }
   }
-
 }

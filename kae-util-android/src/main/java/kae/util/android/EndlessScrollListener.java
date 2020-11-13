@@ -9,10 +9,7 @@ package kae.util.android;
 
 import android.widget.AbsListView;
 
-/**
- * @author A. Kapralov
- * 15.12.13 19:23
- */
+/** @author A. Kapralov 15.12.13 19:23 */
 public class EndlessScrollListener implements AbsListView.OnScrollListener {
 
   private int visibleThreshold = 5;
@@ -39,8 +36,8 @@ public class EndlessScrollListener implements AbsListView.OnScrollListener {
   }
 
   @Override
-  public void onScroll(AbsListView view, int firstVisibleItem,
-                       int visibleItemCount, int totalItemCount) {
+  public void onScroll(
+      AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
     if (loading) {
       if (totalItemCount > previousTotal) {
         loading = false;
@@ -57,13 +54,10 @@ public class EndlessScrollListener implements AbsListView.OnScrollListener {
   }
 
   @Override
-  public void onScrollStateChanged(AbsListView view, int scrollState) {
-  }
+  public void onScrollStateChanged(AbsListView view, int scrollState) {}
 
   public static interface Loader {
 
     void load(int page);
-
   }
-
 }

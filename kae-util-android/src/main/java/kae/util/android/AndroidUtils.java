@@ -35,10 +35,7 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * @author A. Kapralov
- * 18.04.13 10:56
- */
+/** @author A. Kapralov 18.04.13 10:56 */
 public class AndroidUtils {
 
   public static final String TAG = "kae.util.AndroidUtils";
@@ -58,8 +55,8 @@ public class AndroidUtils {
       }
     }
 
-    String androidId = Settings.Secure.getString(context.getContentResolver(),
-        Settings.Secure.ANDROID_ID);
+    String androidId =
+        Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     if (androidId != null && !androidId.isEmpty()) {
       return new DeviceId(DeviceIdType.ANDROID_ID, androidId);
     }
@@ -80,66 +77,74 @@ public class AndroidUtils {
   }
 
   public static String getStringPreference(Context context, String preferenceName, String key) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     return sharedPreferences.getString(key, null);
   }
 
   public static long getLongPreference(Context context, String preferenceName, String key) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     return sharedPreferences.getLong(key, 0);
   }
 
   public static boolean getBooleanPreference(Context context, String preferenceName, String key) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     return sharedPreferences.getBoolean(key, false);
   }
 
-  public static void savePreference(Context context, String preferenceName, String key,
-                                    boolean value) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+  public static void savePreference(
+      Context context, String preferenceName, String key, boolean value) {
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putBoolean(key, value);
     editor.commit();
   }
 
-  public static void savePreference(Context context, String preferenceName, String key,
-                                    long value) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+  public static void savePreference(
+      Context context, String preferenceName, String key, long value) {
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putLong(key, value);
     editor.commit();
   }
 
-  public static void savePreference(Context context, String preferenceName, String key,
-                                    int value) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+  public static void savePreference(Context context, String preferenceName, String key, int value) {
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putInt(key, value);
     editor.commit();
   }
 
-  public static void savePreference(Context context, String preferenceName, String key,
-                                    String value) {
-    SharedPreferences sharedPreferences =
-        context.getSharedPreferences(preferenceName, 0);
+  public static void savePreference(
+      Context context, String preferenceName, String key, String value) {
+    SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceName, 0);
     SharedPreferences.Editor editor = sharedPreferences.edit();
     editor.putString(key, value);
     editor.commit();
   }
 
-  public static void showNotification(Context context, int id, int icon, String text,
-                                      PendingIntent contentIntent, String contentTitle, String contentText, int flags) {
-    showNotification(context, id, icon, text, contentIntent, contentTitle, contentText, flags, null);
+  public static void showNotification(
+      Context context,
+      int id,
+      int icon,
+      String text,
+      PendingIntent contentIntent,
+      String contentTitle,
+      String contentText,
+      int flags) {
+    showNotification(
+        context, id, icon, text, contentIntent, contentTitle, contentText, flags, null);
   }
 
-  public static void showNotification(Context context, int id, int icon, String text,
-                                      PendingIntent contentIntent, String contentTitle, String contentText, int flags, Uri soundUri) {
+  public static void showNotification(
+      Context context,
+      int id,
+      int icon,
+      String text,
+      PendingIntent contentIntent,
+      String contentTitle,
+      String contentText,
+      int flags,
+      Uri soundUri) {
     Notification notification = new Notification(icon, text, System.currentTimeMillis());
     notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
@@ -160,7 +165,8 @@ public class AndroidUtils {
     notificationManager.notify(id, notification);
   }
 
-  public static void showNotification(Context context, String tag, int id, Notification notification) {
+  public static void showNotification(
+      Context context, String tag, int id, Notification notification) {
     NotificationManager notificationManager =
         (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     notificationManager.notify(tag, id, notification);
@@ -178,13 +184,13 @@ public class AndroidUtils {
     mNotificationManager.cancel(tag, notificationId);
   }
 
-
   public static BatteryInfo getBatteryInfo(Context context) {
     IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
     Intent batteryStatus = context.registerReceiver(null, ifilter);
     int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
-    boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
-        status == BatteryManager.BATTERY_STATUS_FULL;
+    boolean isCharging =
+        status == BatteryManager.BATTERY_STATUS_CHARGING
+            || status == BatteryManager.BATTERY_STATUS_FULL;
 
     int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
     int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
@@ -261,19 +267,20 @@ public class AndroidUtils {
 
   public static Drawable resizeDrawable(Context context, Drawable origin, int width, int height) {
     Bitmap bitmap = ((BitmapDrawable) origin).getBitmap();
-    return new BitmapDrawable(context.getResources(), Bitmap.createScaledBitmap(bitmap, width,
-        height, true));
+    return new BitmapDrawable(
+        context.getResources(), Bitmap.createScaledBitmap(bitmap, width, height, true));
   }
 
-  public static TabHost.TabSpec newTab(TabHost tabHost, String tag, String label, int tabContentId) {
+  public static TabHost.TabSpec newTab(
+      TabHost tabHost, String tag, String label, int tabContentId) {
     TabHost.TabSpec tabSpec = tabHost.newTabSpec(tag);
     tabSpec.setIndicator(label);
     tabSpec.setContent(tabContentId);
     return tabSpec;
   }
 
-  public static TabHost.TabSpec newTab(TabHost tabHost, String tag, String label, Drawable icon,
-                                       int tabContentId) {
+  public static TabHost.TabSpec newTab(
+      TabHost tabHost, String tag, String label, Drawable icon, int tabContentId) {
     TabHost.TabSpec tabSpec = tabHost.newTabSpec(tag);
     if (icon != null) {
       tabSpec.setIndicator(label, icon);
@@ -283,5 +290,4 @@ public class AndroidUtils {
     tabSpec.setContent(tabContentId);
     return tabSpec;
   }
-
 }

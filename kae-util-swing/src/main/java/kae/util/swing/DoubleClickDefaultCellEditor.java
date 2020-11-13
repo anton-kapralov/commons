@@ -11,9 +11,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.util.EventObject;
 
-/**
- * @author A. Kapralov 10.04.12 12:03
- */
+/** @author A. Kapralov 10.04.12 12:03 */
 public class DoubleClickDefaultCellEditor extends DefaultCellEditor {
 
   public DoubleClickDefaultCellEditor(final JTextField textField) {
@@ -30,7 +28,6 @@ public class DoubleClickDefaultCellEditor extends DefaultCellEditor {
 
   @Override
   public boolean isCellEditable(EventObject anEvent) {
-    return anEvent instanceof MouseEvent &&
-        ((MouseEvent) anEvent).getClickCount() >= 2;
+    return anEvent instanceof MouseEvent && ((MouseEvent) anEvent).getClickCount() >= 2;
   }
 }

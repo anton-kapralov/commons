@@ -9,31 +9,26 @@
 
 package kae.util;
 
-/**
- * @author Kapralov A.
- */
+/** @author Kapralov A. */
 public class MathUtils {
 
-  /**
-   * Количество байтов в килобайте.
-   */
+  /** Количество байтов в килобайте. */
   private static final long BYTES_IN_KB = 1024;
-  /**
-   * Количество байтов в мегабайте.
-   */
+  /** Количество байтов в мегабайте. */
   private static final long BYTES_IN_MB = 1048576;
 
   /**
    * Округляет дробную часть числа.
    *
-   * @param _fraction  число для округления.
+   * @param _fraction число для округления.
    * @param _precision точность:
-   *                   <ul>
-   *                   <li>10   - до десятых </li>
-   *                   <li>100  - до сотых </li>
-   *                   <li>1000 - до тысячных </li>
-   *                   <li>и т. д.</li>
-   *                   </ul>
+   *     <ul>
+   *       <li>10 - до десятых
+   *       <li>100 - до сотых
+   *       <li>1000 - до тысячных
+   *       <li>и т. д.
+   *     </ul>
+   *
    * @return округленное число.
    */
   public static float roundFraction(float _fraction, int _precision) {
@@ -46,14 +41,15 @@ public class MathUtils {
   /**
    * Округляет дробную часть числа.
    *
-   * @param _fraction  число для округления.
+   * @param _fraction число для округления.
    * @param _precision точность:
-   *                   <ul>
-   *                   <li>10   - до десятых </li>
-   *                   <li>100  - до сотых </li>
-   *                   <li>1000 - до тысячных </li>
-   *                   <li>и т. д.</li>
-   *                   </ul>
+   *     <ul>
+   *       <li>10 - до десятых
+   *       <li>100 - до сотых
+   *       <li>1000 - до тысячных
+   *       <li>и т. д.
+   *     </ul>
+   *
    * @return округленное число.
    */
   public static double roundFraction(double _fraction, int _precision) {
@@ -82,5 +78,4 @@ public class MathUtils {
     }
     return dataSizeString;
   }
-
 }

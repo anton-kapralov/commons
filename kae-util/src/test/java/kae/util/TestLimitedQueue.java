@@ -6,8 +6,7 @@ import org.junit.Test;
 /**
  * TestLimitedQueue
  *
- * @author Kapralov A.
- * 03.07.2014 20:32
+ * @author Kapralov A. 03.07.2014 20:32
  */
 public class TestLimitedQueue {
 
@@ -29,5 +28,4 @@ public class TestLimitedQueue {
       Assert.assertEquals(i + 1, (int) queue.get(i));
     }
   }
-
 }

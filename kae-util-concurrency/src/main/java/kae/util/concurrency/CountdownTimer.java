@@ -54,14 +54,15 @@ public class CountdownTimer extends RunnableCycle {
         fireTimeOver();
         return;
       }
-    } while (!this.timeRemaining.compareAndSet(timeRemainingLocal, timeRemainingLocal - getTimeout()));
+    } while (!this.timeRemaining.compareAndSet(
+        timeRemainingLocal, timeRemainingLocal - getTimeout()));
 
     fireTicked();
   }
 
-  //<editor-fold defaultstate="collapsed" desc=" Event 'Countdown ticked' ">
+  // <editor-fold defaultstate="collapsed" desc=" Event 'Countdown ticked' ">
 
-  private transient final List<CountdownTickedListener> countdownTickedListeners =
+  private final transient List<CountdownTickedListener> countdownTickedListeners =
       new ArrayList<>(8);
 
   /**
@@ -86,9 +87,7 @@ public class CountdownTimer extends RunnableCycle {
     }
   }
 
-  /**
-   * Notifies all registered listeners about the event.
-   */
+  /** Notifies all registered listeners about the event. */
   private void fireTicked() {
     CountdownTickedListener[] listenersCopy;
     synchronized (countdownTickedListeners) {
@@ -101,11 +100,11 @@ public class CountdownTimer extends RunnableCycle {
     }
   }
 
-  //</editor-fold>
+  // </editor-fold>
 
-  //<editor-fold defaultstate="collapsed" desc=" Event 'Countdown time is over' ">
+  // <editor-fold defaultstate="collapsed" desc=" Event 'Countdown time is over' ">
 
-  private transient final List<CountdownTimeOverListener> countdownTimeOverListeners =
+  private final transient List<CountdownTimeOverListener> countdownTimeOverListeners =
       new ArrayList<>(8);
 
   /**
@@ -130,9 +129,7 @@ public class CountdownTimer extends RunnableCycle {
     }
   }
 
-  /**
-   * Notifies all registered listeners about the event.
-   */
+  /** Notifies all registered listeners about the event. */
   private void fireTimeOver() {
     CountdownTimeOverListener[] listenersCopy;
     synchronized (countdownTimeOverListeners) {
@@ -145,6 +142,6 @@ public class CountdownTimer extends RunnableCycle {
     }
   }
 
-  //</editor-fold>
+  // </editor-fold>
 
 }

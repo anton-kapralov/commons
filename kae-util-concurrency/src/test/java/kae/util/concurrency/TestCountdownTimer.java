@@ -18,10 +18,11 @@ public class TestCountdownTimer {
     CountdownTimer countdownTimer = new CountdownTimer(ticksCount * timeout, timeout);
     TickedListener tickedListener = new TickedListener();
     countdownTimer.addCountdownTickedListener(tickedListener);
-    countdownTimer.addCountdownTimeOverListener(timer -> {
-      System.out.println("Finished!");
-      latch.countDown();
-    });
+    countdownTimer.addCountdownTimeOverListener(
+        timer -> {
+          System.out.println("Finished!");
+          latch.countDown();
+        });
 
     countdownTimer.start();
 

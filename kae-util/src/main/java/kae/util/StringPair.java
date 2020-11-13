@@ -16,18 +16,12 @@ package kae.util;
  */
 public class StringPair {
 
-  /**
-   * Первая строка.
-   */
+  /** Первая строка. */
   public String first;
-  /**
-   * Вторая строка.
-   */
+  /** Вторая строка. */
   public String second;
 
-  /**
-   * Конструктор по умолчанию.
-   */
+  /** Конструктор по умолчанию. */
   public StringPair() {
     first = null;
     second = null;
@@ -36,13 +30,11 @@ public class StringPair {
   /**
    * Инициализирующий конструктор.
    *
-   * @param _first  первая строка.
+   * @param _first первая строка.
    * @param _second вторая строка.
    */
   public StringPair(String _first, String _second) {
     first = _first;
     second = _second;
   }
-
 }
-

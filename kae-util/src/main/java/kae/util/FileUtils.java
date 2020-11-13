@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-/**
- * @author A. Kapralov 08.07.2010 18:51:07
- */
+/** @author A. Kapralov 08.07.2010 18:51:07 */
 public class FileUtils {
 
   public static String getExtension(String fileName) {
@@ -52,8 +50,9 @@ public class FileUtils {
     return new File(path).delete();
   }
 
-  public static File archivate(File sourceFile, String sourceFileName,
-                               File destinationDir, String destinationFileName) throws IOException {
+  public static File archivate(
+      File sourceFile, String sourceFileName, File destinationDir, String destinationFileName)
+      throws IOException {
     File archiveFile = new File(destinationDir, destinationFileName + ".zip");
 
     FileInputStream fis = null;
@@ -81,5 +80,4 @@ public class FileUtils {
     final String filename = getNameWithoutExtension(sourceFile);
     return archivate(sourceFile, filename, destinationDir, filename);
   }
-
 }

@@ -7,10 +7,7 @@
 
 package kae.util.android;
 
-/**
- * @author A. Kapralov
- * 28.08.12 20:37
- */
+/** @author A. Kapralov 28.08.12 20:37 */
 public interface CancellableTask extends Runnable {
 
   boolean cancel();
@@ -20,5 +17,4 @@ public interface CancellableTask extends Runnable {
   String getFailureMessage();
 
   boolean hasFailed();
-
 }

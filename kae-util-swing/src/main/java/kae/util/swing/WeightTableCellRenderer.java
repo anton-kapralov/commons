@@ -10,9 +10,7 @@ package kae.util.swing;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- * @author A. Kapralov 26.11.11 14:11
- */
+/** @author A. Kapralov 26.11.11 14:11 */
 public class WeightTableCellRenderer extends DefaultTableCellRenderer {
 
   public WeightTableCellRenderer() {
@@ -27,5 +25,4 @@ public class WeightTableCellRenderer extends DefaultTableCellRenderer {
     }
     super.setValue(value);
   }
-
 }

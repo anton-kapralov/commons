@@ -40,5 +40,4 @@ public class TestAbstractBlinker {
       assertEquals(blinks.incrementAndGet() % 2 == 0, opened);
     }
   }
-
 }

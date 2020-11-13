@@ -5,12 +5,10 @@ import kae.util.concurrency.AbstractBlinker;
 import javax.swing.*;
 import java.awt.*;
 
-
 /**
  * ComponentBlinker
  *
- * @author Kapralov A.
- * 10.12.2014 17:23
+ * @author Kapralov A. 10.12.2014 17:23
  */
 public class ComponentBlinker extends AbstractBlinker {
 
@@ -29,5 +27,4 @@ public class ComponentBlinker extends AbstractBlinker {
   protected void blink(boolean opened) {
     SwingUtilities.invokeLater(() -> component.setBackground(opened ? color : defaultColor));
   }
-
 }

@@ -21,10 +21,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * @author A. Kapralov
- * 03.05.13 19:17
- */
+/** @author A. Kapralov 03.05.13 19:17 */
 public class RestUtils {
 
   public static JSONObject getJSON(String url) throws IOException, JSONException {
@@ -44,7 +41,8 @@ public class RestUtils {
     return getJSONArray(url, null);
   }
 
-  public static JSONArray getJSONArray(String url, String encoding) throws IOException, JSONException {
+  public static JSONArray getJSONArray(String url, String encoding)
+      throws IOException, JSONException {
     final String string = getString(url, encoding);
     if (string != null) {
       return new JSONArray(string);
@@ -107,5 +105,4 @@ public class RestUtils {
     HttpClient httpclient = new DefaultHttpClient();
     httpclient.execute(new HttpPost(url));
   }
-
 }

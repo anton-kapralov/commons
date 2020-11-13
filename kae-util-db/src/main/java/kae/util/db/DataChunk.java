@@ -10,18 +10,14 @@ package kae.util.db;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @author A. Kapralov
- * 20.03.13 13:28
- */
+/** @author A. Kapralov 20.03.13 13:28 */
 public class DataChunk<T> implements Serializable {
 
   private List<T> content;
 
   private long totalCount;
 
-  public DataChunk() {
-  }
+  public DataChunk() {}
 
   public DataChunk(List<T> content, long totalCount) {
     this.content = content;

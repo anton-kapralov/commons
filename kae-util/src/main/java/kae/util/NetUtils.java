@@ -9,8 +9,7 @@ import java.util.Enumeration;
 /**
  * NetUtils
  *
- * @author Kapralov A.
- * 12.09.2014 15:35
+ * @author Kapralov A. 12.09.2014 15:35
  */
 public class NetUtils {
 
@@ -43,5 +42,4 @@ public class NetUtils {
     }
     return sb.toString();
   }
-
 }

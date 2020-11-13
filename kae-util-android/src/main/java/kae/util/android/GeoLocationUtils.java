@@ -12,8 +12,7 @@ import java.util.Locale;
 /**
  * GeoLocationUtils
  *
- * @author Kapralov A.
- * 25.11.2013 16:38
+ * @author Kapralov A. 25.11.2013 16:38
  */
 public class GeoLocationUtils {
 
@@ -41,8 +40,13 @@ public class GeoLocationUtils {
 
   public static String locationToString(Location location) {
     if (location != null) {
-      return String.format(Locale.US, "%s %f %f %.2f", location.getProvider(),
-          location.getLatitude(), location.getLongitude(), location.getAccuracy());
+      return String.format(
+          Locale.US,
+          "%s %f %f %.2f",
+          location.getProvider(),
+          location.getLatitude(),
+          location.getLongitude(),
+          location.getAccuracy());
     } else {
       return "местоположение не определено";
     }
@@ -50,8 +54,12 @@ public class GeoLocationUtils {
 
   public static String coordinatesToString(Location location) {
     if (location != null) {
-      return String.format(Locale.US, "%.6f %.6f (%s)",
-          location.getLatitude(), location.getLongitude(), location.getProvider());
+      return String.format(
+          Locale.US,
+          "%.6f %.6f (%s)",
+          location.getLatitude(),
+          location.getLongitude(),
+          location.getProvider());
     } else {
       return "местоположение не определено";
     }
@@ -61,14 +69,18 @@ public class GeoLocationUtils {
 
   public static double distance(Location location1, Location location2) {
     if (location1 != null && location2 != null) {
-      return distance(location1.getLatitude(), location1.getLongitude(), location2.getLatitude(),
+      return distance(
+          location1.getLatitude(),
+          location1.getLongitude(),
+          location2.getLatitude(),
           location2.getLongitude());
     } else {
       return 0;
     }
   }
 
-  public static boolean isInZone(double centerLat, double centerLon, float radius, double lat, double lon, float accuracy) {
+  public static boolean isInZone(
+      double centerLat, double centerLon, float radius, double lat, double lon, float accuracy) {
     double distance = distance(centerLat, centerLon, lat, lon);
     return (distance - accuracy) <= radius;
   }
@@ -79,8 +91,9 @@ public class GeoLocationUtils {
     lat1 = Math.toRadians(lat1);
     lat2 = Math.toRadians(lat2);
 
-    double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+    double a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2)
+            + Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
     double c = 2 * Math.asin(Math.sqrt(a));
     return EQUATORIAL_EARTH_RADIUS * c;
   }
@@ -100,5 +113,4 @@ public class GeoLocationUtils {
   public static double deviationAngle(Location locationA, Location locationB, Location locationC) {
     return Math.PI - angle(locationA, locationB, locationC);
   }
-
 }

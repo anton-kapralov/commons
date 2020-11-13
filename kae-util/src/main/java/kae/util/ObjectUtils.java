@@ -9,9 +9,7 @@ package kae.util;
 
 import java.util.Collection;
 
-/**
- * @author A. Kapralov 04.08.11 22:56
- */
+/** @author A. Kapralov 04.08.11 22:56 */
 public class ObjectUtils {
 
   public static boolean equals(Object o1, Object o2) {
@@ -62,9 +60,7 @@ public class ObjectUtils {
     return integerArray;
   }
 
-
   public static String nullSafe(String s) {
     return s != null ? s : "";
   }
-
 }

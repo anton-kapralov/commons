@@ -10,9 +10,7 @@ package kae.util.swing;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-/**
- * @author A. Kapralov 26.11.11 14:22
- */
+/** @author A. Kapralov 26.11.11 14:22 */
 public interface ObjectTableMetaColumn<ObjectClass, ObjectController> {
 
   Class<?> getValueClass();
@@ -30,5 +28,4 @@ public interface ObjectTableMetaColumn<ObjectClass, ObjectController> {
   TableCellEditor getTableCellEditor();
 
   ObjectClass setValue(ObjectController controller, ObjectClass o, Object value);
-
 }

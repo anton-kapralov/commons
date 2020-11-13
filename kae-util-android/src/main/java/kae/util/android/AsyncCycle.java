@@ -7,10 +7,7 @@
 
 package kae.util.android;
 
-/**
- * @author A. Kapralov
- * 03.05.13 20:43
- */
+/** @author A. Kapralov 03.05.13 20:43 */
 public abstract class AsyncCycle {
 
   private final Object lock = new Object();
@@ -89,7 +86,6 @@ public abstract class AsyncCycle {
         }
       }
     }
-
   }
 
   private class PostponedAsyncTaskImpl extends Thread {
@@ -112,6 +108,5 @@ public abstract class AsyncCycle {
         }
       }
     }
-
   }
 }

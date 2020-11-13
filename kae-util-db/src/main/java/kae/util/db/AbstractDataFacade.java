@@ -11,10 +11,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- * @author A. Kapralov
- * 15.03.13 17:20
- */
+/** @author A. Kapralov 15.03.13 17:20 */
 public abstract class AbstractDataFacade {
 
   protected final DataSource ds;
@@ -42,5 +39,4 @@ public abstract class AbstractDataFacade {
       }
     }
   }
-
 }

@@ -11,10 +11,8 @@ public class ResourceUtils {
   }
 
   public static int getDrawableIdByName(Context context, String name) {
-    int drawableResource = context.getResources().getIdentifier(
-        name,
-        "drawable",
-        context.getPackageName());
+    int drawableResource =
+        context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     if (drawableResource == 0) {
       throw new RuntimeException("Can't find drawable with name: " + name);
     }

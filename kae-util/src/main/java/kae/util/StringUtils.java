@@ -7,9 +7,7 @@
 
 package kae.util;
 
-/**
- * @author A. Kapralov
- */
+/** @author A. Kapralov */
 public class StringUtils {
 
   public static boolean isEmpty(String string) {
@@ -54,5 +52,4 @@ public class StringUtils {
 
     return result;
   }
-
 }

@@ -7,10 +7,7 @@
 
 package kae.util.concurrency;
 
-/**
- * @author A. Kapralov
- * 21.02.15 15:39
- */
+/** @author A. Kapralov 21.02.15 15:39 */
 public interface StopwatchListener {
 
   void started();
@@ -20,5 +17,4 @@ public interface StopwatchListener {
   void reset();
 
   void ticked(long time);
-
 }

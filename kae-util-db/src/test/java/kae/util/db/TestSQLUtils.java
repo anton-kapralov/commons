@@ -10,10 +10,7 @@ package kae.util.db;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @author A. Kapralov
- * 22.03.13 16:37
- */
+/** @author A. Kapralov 22.03.13 16:37 */
 public class TestSQLUtils {
 
   @Test
@@ -25,5 +22,4 @@ public class TestSQLUtils {
   public void testMakeMaskForNull() throws Exception {
     Assert.assertEquals(null, SQLUtils.makeMask(null));
   }
-
 }

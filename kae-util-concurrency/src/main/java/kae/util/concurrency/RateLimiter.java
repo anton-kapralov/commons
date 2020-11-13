@@ -2,9 +2,7 @@ package kae.util.concurrency;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
- *
- */
+/** */
 public class RateLimiter {
 
   private final long minimalInterval;
@@ -32,5 +30,4 @@ public class RateLimiter {
       }
     }
   }
-
 }

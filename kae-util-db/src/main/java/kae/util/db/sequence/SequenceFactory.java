@@ -9,10 +9,7 @@ package kae.util.db.sequence;
 
 import javax.sql.DataSource;
 
-/**
- * @author A. Kapralov
- * 04.03.13 13:46
- */
+/** @author A. Kapralov 04.03.13 13:46 */
 public class SequenceFactory {
 
   private static SequenceFactory instance;
@@ -40,6 +37,4 @@ public class SequenceFactory {
       sequenceInstance = new SequenceImpl(dataSource);
     }
   }
-
-
 }

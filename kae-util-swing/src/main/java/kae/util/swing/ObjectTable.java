@@ -13,9 +13,7 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
-/**
- * @author A. Kapralov 21.12.11 14:44
- */
+/** @author A. Kapralov 21.12.11 14:44 */
 public class ObjectTable extends JTable {
 
   public ObjectTable(ObjectTableModel model) {
@@ -49,8 +47,6 @@ public class ObjectTable extends JTable {
           tableColumn.setCellEditor(defaultCellEditor);
         }
       }
-
     }
   }
-
 }

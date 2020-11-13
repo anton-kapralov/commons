@@ -54,5 +54,4 @@ class IdentifierPoolImpl implements IdentifierPool {
   public int getFetchSize() {
     return fetchSize;
   }
-
 }

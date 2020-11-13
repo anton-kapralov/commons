@@ -31,9 +31,7 @@ class SequenceImpl implements Sequence {
     try {
       Connection connection = getDataSource().getConnection();
       try {
-        CallableStatement st = connection.prepareCall(
-            "{call SEQ_SEQUENCE_NEXT(?, ?, ?, ?)}"
-        );
+        CallableStatement st = connection.prepareCall("{call SEQ_SEQUENCE_NEXT(?, ?, ?, ?)}");
 
         st.setString(IDX_KEY, pool.getKey());
         st.setInt(IDX_FETCH_SIZE, pool.getFetchSize());

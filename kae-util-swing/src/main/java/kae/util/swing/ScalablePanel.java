@@ -6,8 +6,7 @@ import java.awt.*;
 /**
  * ScalablePanel
  *
- * @author Kapralov A.
- * 01.10.2014 15:00
+ * @author Kapralov A. 01.10.2014 15:00
  */
 public class ScalablePanel extends JPanel implements Scalable {
 
@@ -25,8 +24,7 @@ public class ScalablePanel extends JPanel implements Scalable {
     super(isDoubleBuffered);
   }
 
-  public ScalablePanel() {
-  }
+  public ScalablePanel() {}
 
   @Override
   public void scale() {
@@ -44,5 +42,4 @@ public class ScalablePanel extends JPanel implements Scalable {
 
     scaled = true;
   }
-
 }

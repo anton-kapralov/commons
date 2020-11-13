@@ -11,9 +11,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.util.Locale;
 
-/**
- * @author A. Kapralov 26.11.11 14:11
- */
+/** @author A. Kapralov 26.11.11 14:11 */
 public class PercentTableCellRenderer extends DefaultTableCellRenderer {
 
   public PercentTableCellRenderer() {
@@ -29,5 +27,4 @@ public class PercentTableCellRenderer extends DefaultTableCellRenderer {
     }
     super.setValue(value);
   }
-
 }

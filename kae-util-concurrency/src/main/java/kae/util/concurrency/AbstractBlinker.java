@@ -5,8 +5,7 @@ import net.jcip.annotations.GuardedBy;
 /**
  * AbstractBlinker
  *
- * @author Kapralov A.
- * 10.12.2014 17:44
+ * @author Kapralov A. 10.12.2014 17:44
  */
 public abstract class AbstractBlinker {
 
@@ -17,8 +16,10 @@ public abstract class AbstractBlinker {
   private Thread thread;
 
   /**
-   * @param pattern     an array with a pattern where odd indices "eyes open" and on even - "eyes closed".
-   * @param cyclesCount count of cycles. If it equals {@code 0} then goes infinitely until {@code stop()} is called.
+   * @param pattern an array with a pattern where odd indices "eyes open" and on even - "eyes
+   *     closed".
+   * @param cyclesCount count of cycles. If it equals {@code 0} then goes infinitely until {@code
+   *     stop()} is called.
    */
   public AbstractBlinker(long[] pattern, int cyclesCount) {
     this.pattern = pattern;
@@ -72,5 +73,4 @@ public abstract class AbstractBlinker {
   }
 
   protected abstract void blink(boolean opened);
-
 }

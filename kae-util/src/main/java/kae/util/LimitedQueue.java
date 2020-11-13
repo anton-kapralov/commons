@@ -5,8 +5,7 @@ import java.util.LinkedList;
 /**
  * LimitedQueue
  *
- * @author Kapralov A.
- * 18.02.2014 12:50
+ * @author Kapralov A. 18.02.2014 12:50
  */
 public class LimitedQueue<E> extends LinkedList<E> {
 
@@ -24,5 +23,4 @@ public class LimitedQueue<E> extends LinkedList<E> {
     }
     return true;
   }
-
 }

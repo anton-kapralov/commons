@@ -10,10 +10,7 @@ package kae.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- * @author A. Kapralov
- * 04.03.13 12:30
- */
+/** @author A. Kapralov 04.03.13 12:30 */
 public class TestDigestUtils {
 
   @Test
@@ -27,5 +24,4 @@ public class TestDigestUtils {
     String sha1HexString = DigestUtils.sha1Hex("1234567890");
     Assert.assertEquals("01b307acba4f54f55aafc33bb06bbbf6ca803e9a", sha1HexString);
   }
-
 }

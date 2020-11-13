@@ -13,5 +13,4 @@ package kae.util.concurrency;
 public interface CountdownTickedListener {
 
   void ticked(final CountdownTimer timer);
-
 }

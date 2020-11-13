@@ -9,10 +9,7 @@ package kae.util;
 
 import java.util.Date;
 
-/**
- * @author A. Kapralov
- * 15.03.14 13:43
- */
+/** @author A. Kapralov 15.03.14 13:43 */
 public class TimeSpan {
 
   public final Date startDate;
@@ -22,5 +19,4 @@ public class TimeSpan {
     this.startDate = startDate;
     this.endDate = endDate;
   }
-
 }

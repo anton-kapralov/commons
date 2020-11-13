@@ -12,9 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 
-/**
- * @author A. Kapralov 21.11.11 20:05
- */
+/** @author A. Kapralov 21.11.11 20:05 */
 public class UiUtils {
 
   public static void expandAll(JTree tree) {
@@ -84,7 +82,8 @@ public class UiUtils {
     final Rectangle rectangle = env.getMaximumWindowBounds();
     final int width = rectangle.width;
     final int height = rectangle.height;
-    window.setLocation((int) (width * (1 - widthFactor) / 2), (int) (height * (1 - heightFactor) / 2));
+    window.setLocation(
+        (int) (width * (1 - widthFactor) / 2), (int) (height * (1 - heightFactor) / 2));
     Dimension size = new Dimension((int) (width * widthFactor), (int) (height * heightFactor));
     window.setPreferredSize(size);
   }

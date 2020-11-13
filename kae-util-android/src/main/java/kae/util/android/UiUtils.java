@@ -14,14 +14,11 @@ import android.content.DialogInterface;
 import android.widget.EditText;
 import kae.util.StringUtils;
 
-/**
- * @author A. Kapralov
- * 31.08.12 17:06
- */
+/** @author A. Kapralov 31.08.12 17:06 */
 public class UiUtils {
 
-  public static AlertDialog showAlertDialog(Context context, int titleId, int iconId,
-                                            String message) {
+  public static AlertDialog showAlertDialog(
+      Context context, int titleId, int iconId, String message) {
     AlertDialog.Builder builder = new AlertDialog.Builder(context);
     builder.setTitle(titleId);
     builder.setIcon(iconId);
@@ -33,9 +30,13 @@ public class UiUtils {
     return alert;
   }
 
-  public static AlertDialog showYesNoDialog(Context context, int titleId, int iconId,
-                                            String message,
-                                            DialogInterface.OnClickListener yesListener, DialogInterface.OnClickListener noListener) {
+  public static AlertDialog showYesNoDialog(
+      Context context,
+      int titleId,
+      int iconId,
+      String message,
+      DialogInterface.OnClickListener yesListener,
+      DialogInterface.OnClickListener noListener) {
     AlertDialog.Builder builder = new AlertDialog.Builder(context);
     builder.setTitle(titleId);
     builder.setIcon(iconId);

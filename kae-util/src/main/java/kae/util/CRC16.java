@@ -3,23 +3,18 @@ package kae.util;
 /**
  * CRC16
  *
- * @author Kapralov A.
- * 07.04.2014 12:48
+ * @author Kapralov A. 07.04.2014 12:48
  */
 public class CRC16 {
 
-  /**
-   * value contains the currently computed CRC, set it to 0 initally
-   */
+  /** value contains the currently computed CRC, set it to 0 initally */
   public int value;
 
   public CRC16() {
     value = 0;
   }
 
-  /**
-   * update CRC with byte b
-   */
+  /** update CRC with byte b */
   public void update(byte aByte) {
     value = update(value, aByte);
   }
@@ -41,9 +36,7 @@ public class CRC16 {
     return value & 0xffff;
   }
 
-  /**
-   * reset CRC value to 0
-   */
+  /** reset CRC value to 0 */
   public void reset() {
     value = 0;
   }
@@ -57,5 +50,4 @@ public class CRC16 {
 
     return value;
   }
-
 }

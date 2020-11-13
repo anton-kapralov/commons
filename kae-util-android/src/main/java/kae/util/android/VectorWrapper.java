@@ -10,10 +10,7 @@ package kae.util.android;
 import java.io.Serializable;
 import java.util.Vector;
 
-/**
- * @author A. Kapralov
- * 14.09.12 6:01
- */
+/** @author A. Kapralov 14.09.12 6:01 */
 public class VectorWrapper implements Serializable {
 
   public final Vector value;

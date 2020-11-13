@@ -51,8 +51,7 @@ public class NavigationDrawerConfiguration {
     return actionMenuItemsToHideWhenDrawerOpen;
   }
 
-  public void setActionMenuItemsToHideWhenDrawerOpen(
-      int[] actionMenuItemsToHideWhenDrawerOpen) {
+  public void setActionMenuItemsToHideWhenDrawerOpen(int[] actionMenuItemsToHideWhenDrawerOpen) {
     this.actionMenuItemsToHideWhenDrawerOpen = actionMenuItemsToHideWhenDrawerOpen;
   }
 

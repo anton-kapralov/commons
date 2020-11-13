@@ -10,10 +10,7 @@ package kae.util.db.sequence;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author A. Kapralov
- * 04.03.13 13:54
- */
+/** @author A. Kapralov 04.03.13 13:54 */
 public class IdentifierPoolManager {
 
   private static IdentifierPoolManager instance;
@@ -43,5 +40,4 @@ public class IdentifierPoolManager {
 
     return pool;
   }
-
 }

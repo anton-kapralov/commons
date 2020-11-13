@@ -9,10 +9,7 @@ package kae.util.android;
 
 import android.os.AsyncTask;
 
-/**
- * @author A. Kapralov
- * 31.08.12 14:51
- */
+/** @author A. Kapralov 31.08.12 14:51 */
 public class AsyncTaskExecutor extends AsyncTask<Void, Void, Void> {
 
   private final CancellableTask task;
@@ -60,5 +57,4 @@ public class AsyncTaskExecutor extends AsyncTask<Void, Void, Void> {
       listener.onCancelled();
     }
   }
-
 }

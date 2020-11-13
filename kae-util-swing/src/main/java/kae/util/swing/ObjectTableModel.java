@@ -11,18 +11,17 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 
-/**
- * @author A. Kapralov 10.12.11 17:48
- */
+/** @author A. Kapralov 10.12.11 17:48 */
 public abstract class ObjectTableModel<ObjectClass, ObjectController> extends AbstractTableModel {
 
   protected ObjectController controller;
   protected final ObjectTableMetaColumn<ObjectClass, ObjectController>[] metaColumns;
   protected ArrayList<ObjectClass> objects;
 
-  public ObjectTableModel(ObjectController controller,
-                          ObjectTableMetaColumn<ObjectClass, ObjectController>[] metaColumns,
-                          ArrayList<ObjectClass> objects) {
+  public ObjectTableModel(
+      ObjectController controller,
+      ObjectTableMetaColumn<ObjectClass, ObjectController>[] metaColumns,
+      ArrayList<ObjectClass> objects) {
     this.controller = controller;
     this.metaColumns = metaColumns;
     this.objects = objects;
@@ -126,5 +125,4 @@ public abstract class ObjectTableModel<ObjectClass, ObjectController> extends Ab
     }
     return result;
   }
-
 }

@@ -15,12 +15,13 @@ public class ButtonListDialog<T> extends JDialog {
   public static final String PROPERTY_VALUE = "value";
   private JPanel contentPane;
 
-  private final ActionListener actionListener = new ActionListener() {
-    @Override
-    public void actionPerformed(ActionEvent e) {
-      onItemClick(e);
-    }
-  };
+  private final ActionListener actionListener =
+      new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          onItemClick(e);
+        }
+      };
 
   private String emptyInfoString = "";
 
@@ -43,18 +44,18 @@ public class ButtonListDialog<T> extends JDialog {
 
     buttonFont = contentPane.getFont();
 
-    addWindowListener(new WindowAdapter() {
-      @Override
-      public void windowDeactivated(WindowEvent e) {
-        dispose();
-      }
-    });
+    addWindowListener(
+        new WindowAdapter() {
+          @Override
+          public void windowDeactivated(WindowEvent e) {
+            dispose();
+          }
+        });
   }
 
   public void setButtonFontSize(float size) {
     buttonFont = buttonFont.deriveFont(size);
   }
-
 
   public void setEmptyInfoString(String emptyInfoString) {
     this.emptyInfoString = emptyInfoString;
@@ -62,9 +63,10 @@ public class ButtonListDialog<T> extends JDialog {
 
   public void setAdapter(Adapter<T> adapter) {
 
-    Border border = BorderFactory.createCompoundBorder(
-        BorderFactory.createEtchedBorder(EtchedBorder.LOWERED),
-        BorderFactory.createEmptyBorder(10, 10, 10, 10));
+    Border border =
+        BorderFactory.createCompoundBorder(
+            BorderFactory.createEtchedBorder(EtchedBorder.LOWERED),
+            BorderFactory.createEmptyBorder(10, 10, 10, 10));
     contentPane.setBorder(border);
 
     int count = adapter.getCount();
@@ -107,7 +109,5 @@ public class ButtonListDialog<T> extends JDialog {
     T getItem(int i);
 
     String getName(int i);
-
   }
-
 }

@@ -30,21 +30,21 @@ public class UpdateChecker {
   }
 
   public void asyncCheck() {
-    AsyncTaskExecutor asyncUpdateChecker = new AsyncTaskExecutor(getMarketVersionTask,
-        new AsyncTaskExecutorListener() {
-          @Override
-          public void onPreExecute() {
-          }
+    AsyncTaskExecutor asyncUpdateChecker =
+        new AsyncTaskExecutor(
+            getMarketVersionTask,
+            new AsyncTaskExecutorListener() {
+              @Override
+              public void onPreExecute() {}
 
-          @Override
-          public void onPostExecute() {
-            onAsyncUpdateCheckerPostExecute();
-          }
+              @Override
+              public void onPostExecute() {
+                onAsyncUpdateCheckerPostExecute();
+              }
 
-          @Override
-          public void onCancelled() {
-          }
-        });
+              @Override
+              public void onCancelled() {}
+            });
     asyncUpdateChecker.execute();
   }
 
@@ -67,33 +67,37 @@ public class UpdateChecker {
     }
   }
 
-  private void askForUpdate(final Context ctx, String marketVersionName,
-                            String existingVersionName) {
+  private void askForUpdate(
+      final Context ctx, String marketVersionName, String existingVersionName) {
     AlertDialog.Builder alertDialog = new AlertDialog.Builder(ctx);
     alertDialog.setTitle("Доступно обновление");
-    alertDialog.setMessage(String.format(
-        "Вы используете версию: %s\n" +
-            "Доступна версия: %s\n" +
-            "Перейти в Google Play, чтобы обновить?",
-        existingVersionName,
-        marketVersionName));
-    alertDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int which) {
-        String appID = ctx.getPackageName();
-        try {
-          ctx.startActivity(
-              new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appID)));
-        } catch (android.content.ActivityNotFoundException anfe) {
-          ctx.startActivity(new Intent(Intent.ACTION_VIEW,
-              Uri.parse("http://play.google.com/store/apps/details?id" + appID)));
-        }
-      }
-    });
-    alertDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-      public void onClick(DialogInterface dialog, int which) {
-      }
-    });
+    alertDialog.setMessage(
+        String.format(
+            "Вы используете версию: %s\n"
+                + "Доступна версия: %s\n"
+                + "Перейти в Google Play, чтобы обновить?",
+            existingVersionName, marketVersionName));
+    alertDialog.setPositiveButton(
+        "Да",
+        new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {
+            String appID = ctx.getPackageName();
+            try {
+              ctx.startActivity(
+                  new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appID)));
+            } catch (android.content.ActivityNotFoundException anfe) {
+              ctx.startActivity(
+                  new Intent(
+                      Intent.ACTION_VIEW,
+                      Uri.parse("http://play.google.com/store/apps/details?id" + appID)));
+            }
+          }
+        });
+    alertDialog.setNegativeButton(
+        "Нет",
+        new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int which) {}
+        });
     alertDialog.show();
   }
-
 }

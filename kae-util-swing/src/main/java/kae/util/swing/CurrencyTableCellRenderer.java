@@ -11,9 +11,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.text.NumberFormat;
 
-/**
- * @author A. Kapralov 26.11.11 14:11
- */
+/** @author A. Kapralov 26.11.11 14:11 */
 public class CurrencyTableCellRenderer extends DefaultTableCellRenderer {
 
   public CurrencyTableCellRenderer() {
@@ -29,5 +27,4 @@ public class CurrencyTableCellRenderer extends DefaultTableCellRenderer {
     }
     super.setValue(value);
   }
-
 }

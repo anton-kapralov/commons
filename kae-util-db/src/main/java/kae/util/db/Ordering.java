@@ -7,18 +7,14 @@
 
 package kae.util.db;
 
-/**
- * @author A. Kapralov
- * 20.03.13 13:39
- */
+/** @author A. Kapralov 20.03.13 13:39 */
 public class Ordering {
 
   private String fieldName;
 
   private OrderingDirection direction;
 
-  public Ordering() {
-  }
+  public Ordering() {}
 
   public Ordering(String fieldName, OrderingDirection direction) {
     this.fieldName = fieldName;

@@ -10,9 +10,7 @@ package kae.util.concurrency;
 
 import net.jcip.annotations.GuardedBy;
 
-/**
- * @author Kapralov A.
- */
+/** @author Kapralov A. */
 public abstract class RunnableCycle {
 
   private final LoopThenIdleRunner loopThenIdleRunner;
@@ -82,5 +80,4 @@ public abstract class RunnableCycle {
       }
     }
   }
-
 }

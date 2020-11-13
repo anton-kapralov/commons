@@ -7,12 +7,8 @@
 
 package kae.util.android;
 
-/**
- * @author A. Kapralov
- * 04.06.13 13:46
- */
+/** @author A. Kapralov 04.06.13 13:46 */
 public enum DeviceIdType {
-
   ANDROID_ID(0),
 
   IMEI(1),

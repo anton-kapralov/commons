@@ -12,9 +12,7 @@ import javax.swing.plaf.basic.BasicLabelUI;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
-/**
- * @author A. Kapralov 25.11.2010 19:43:57
- */
+/** @author A. Kapralov 25.11.2010 19:43:57 */
 public class VerticalLabelUI extends BasicLabelUI {
 
   static {
@@ -27,7 +25,6 @@ public class VerticalLabelUI extends BasicLabelUI {
     super();
     this.clockwise = clockwise;
   }
-
 
   public Dimension getPreferredSize(JComponent c) {
     JLabel label = (JLabel) c;
@@ -63,8 +60,7 @@ public class VerticalLabelUI extends BasicLabelUI {
     paintIconR.x = paintIconR.y = paintIconR.width = paintIconR.height = 0;
     paintTextR.x = paintTextR.y = paintTextR.width = paintTextR.height = 0;
 
-    String clippedText =
-        layoutCL(label, fm, text, icon, paintViewR, paintIconR, paintTextR);
+    String clippedText = layoutCL(label, fm, text, icon, paintViewR, paintIconR, paintTextR);
 
     Graphics2D g2 = (Graphics2D) g;
     AffineTransform tr = g2.getTransform();
@@ -90,7 +86,6 @@ public class VerticalLabelUI extends BasicLabelUI {
         paintDisabledText(label, g, clippedText, textX, textY);
       }
     }
-
 
     g2.setTransform(tr);
   }

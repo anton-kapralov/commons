@@ -2,8 +2,7 @@ package kae.util.db.sequence;
 
 public class SequenceException extends Exception {
 
-  public SequenceException() {
-  }
+  public SequenceException() {}
 
   public SequenceException(String message) {
     super(message);

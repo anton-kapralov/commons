@@ -16,10 +16,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author A. Kapralov
- * 21.02.15 15:38
- */
+/** @author A. Kapralov 21.02.15 15:38 */
 public class Stopwatch {
 
   private final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
@@ -27,10 +24,13 @@ public class Stopwatch {
   private final long tickTimeout;
 
   private final Object lock = new Object();
+
   @GuardedBy("lock")
   private long elapsed;
+
   @GuardedBy("lock")
   private long baseTime;
+
   @GuardedBy("lock")
   private ScheduledFuture<?> scheduledFuture;
 
@@ -87,7 +87,8 @@ public class Stopwatch {
   }
 
   private void schedule() {
-    scheduledFuture = executorService.scheduleAtFixedRate(this::tick, 0, tickTimeout, TimeUnit.MILLISECONDS);
+    scheduledFuture =
+        executorService.scheduleAtFixedRate(this::tick, 0, tickTimeout, TimeUnit.MILLISECONDS);
   }
 
   private void tick() {
@@ -108,7 +109,7 @@ public class Stopwatch {
     }
   }
 
-  private transient final List<StopwatchListener> listeners = new ArrayList<>(8);
+  private final transient List<StopwatchListener> listeners = new ArrayList<>(8);
 
   public void addListener(StopwatchListener listener) {
     synchronized (listeners) {
@@ -153,5 +154,4 @@ public class Stopwatch {
       listener.ticked(time);
     }
   }
-
 }

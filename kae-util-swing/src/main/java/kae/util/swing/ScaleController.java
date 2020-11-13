@@ -3,10 +3,7 @@ package kae.util.swing;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @author eiv
- * 19.05.14.
- */
+/** @author eiv 19.05.14. */
 public class ScaleController {
 
   private static ScaleController instance;
@@ -15,19 +12,21 @@ public class ScaleController {
     return instance;
   }
 
-  public static void initInstance(boolean autoScale, int originalWidth, int originalHeight, float scaleFactor) {
+  public static void initInstance(
+      boolean autoScale, int originalWidth, int originalHeight, float scaleFactor) {
     instance = new ScaleController(autoScale, originalWidth, originalHeight, scaleFactor);
   }
 
   private final float scaleFactor;
   private final boolean autoScale;
 
-  private ScaleController(boolean autoScale, int originalWidth, int originalHeight, float scaleFactor) {
+  private ScaleController(
+      boolean autoScale, int originalWidth, int originalHeight, float scaleFactor) {
     this.autoScale = autoScale;
     if (autoScale) {
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-      //eiv разрешение на которое надо оптимизировать
-      //Dimension screenSize = new Dimension(1024, 768);
+      // eiv разрешение на которое надо оптимизировать
+      // Dimension screenSize = new Dimension(1024, 768);
       final float scaleFactorWidth = (float) (screenSize.getWidth() / originalWidth);
       final float scaleFactorHeight = (float) (screenSize.getHeight() / originalHeight);
       scaleFactor = Math.min(scaleFactorWidth, scaleFactorHeight);
@@ -99,7 +98,8 @@ public class ScaleController {
     if (imageIcon != null) {
       final int width = (int) (imageIcon.getIconWidth() * scaleFactor);
       final int height = (int) (imageIcon.getIconHeight() * scaleFactor);
-      return new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
+      return new ImageIcon(
+          imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
     }
     return null;
   }
@@ -111,7 +111,8 @@ public class ScaleController {
     if (scalableImageIcon != null) {
       final int width = (int) (scalableImageIcon.getIconWidth() * scaleFactor);
       final int height = (int) (scalableImageIcon.getIconHeight() * scaleFactor);
-      scalableImageIcon.setImage(scalableImageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
+      scalableImageIcon.setImage(
+          scalableImageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
       return scalableImageIcon;
     }
     return null;
@@ -121,9 +122,9 @@ public class ScaleController {
     if (imageIcon != null) {
       int width = (int) (originalWidth * scaleFactor);
       int height = (int) (originalHeight * scaleFactor);
-      return new ImageIcon(imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
+      return new ImageIcon(
+          imageIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
     }
     return null;
   }
-
 }

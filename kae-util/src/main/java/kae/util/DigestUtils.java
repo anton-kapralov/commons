@@ -10,13 +10,12 @@ package kae.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * @author A. Kapralov 17.05.12 15:46
- */
+/** @author A. Kapralov 17.05.12 15:46 */
 public class DigestUtils {
 
-  private static final char[] HEX_CHAR =
-      {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+  private static final char[] HEX_CHAR = {
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
+  };
 
   public static String md5Hex(String string) {
     return encode(string, "MD5");

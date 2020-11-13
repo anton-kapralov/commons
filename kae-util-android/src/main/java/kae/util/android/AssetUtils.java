@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class AssetUtils {
 
   /**
-   * @param filename     searched file name
-   * @param path         subpath from the asset directory
+   * @param filename searched file name
+   * @param path subpath from the asset directory
    * @param assetManager assetManager
    * @return
    * @throws IOException

@@ -3,8 +3,7 @@ package kae.util;
 /**
  * CheckResult
  *
- * @author Kapralov A.
- * 28.02.2014 13:30
+ * @author Kapralov A. 28.02.2014 13:30
  */
 public class CheckResult {
 
@@ -17,5 +16,4 @@ public class CheckResult {
     this.message = message;
     this.description = description;
   }
-
 }

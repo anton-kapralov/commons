@@ -12,10 +12,7 @@ import android.util.Log;
 
 import java.io.IOException;
 
-/**
- * @author A. Kapralov
- * 29.07.13 13:07
- */
+/** @author A. Kapralov 29.07.13 13:07 */
 public class GetMarketVersionTask implements CancellableTask {
 
   private final Context ctx;
@@ -64,5 +61,4 @@ public class GetMarketVersionTask implements CancellableTask {
       Log.e(GetMarketVersionTask.class.getName(), "Failed!", e);
     }
   }
-
 }

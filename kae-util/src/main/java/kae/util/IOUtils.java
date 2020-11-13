@@ -8,8 +8,7 @@ import java.nio.charset.Charset;
 /**
  * IOUtils
  *
- * @author Kapralov A.
- * 17.04.2014 15:43
+ * @author Kapralov A. 17.04.2014 15:43
  */
 public class IOUtils {
 
@@ -135,5 +134,4 @@ public class IOUtils {
       }
     }
   }
-
 }

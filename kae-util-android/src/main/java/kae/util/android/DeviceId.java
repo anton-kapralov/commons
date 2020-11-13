@@ -7,10 +7,7 @@
 
 package kae.util.android;
 
-/**
- * @author A. Kapralov
- * 04.06.13 15:50
- */
+/** @author A. Kapralov 04.06.13 15:50 */
 public class DeviceId {
 
   public final DeviceIdType type;
@@ -21,5 +18,4 @@ public class DeviceId {
     this.type = type;
     this.value = value;
   }
-
 }

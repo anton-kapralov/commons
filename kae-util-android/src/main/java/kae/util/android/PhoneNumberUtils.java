@@ -7,10 +7,7 @@
 
 package kae.util.android;
 
-/**
- * @author A. Kapralov
- * 14.04.13 20:31
- */
+/** @author A. Kapralov 14.04.13 20:31 */
 public class PhoneNumberUtils {
 
   public static final int NUMBER_LENGTH = 10;

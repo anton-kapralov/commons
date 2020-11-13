@@ -4,10 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 
-/**
- * @author eiv
- * 09.10.2014.
- */
+/** @author eiv 09.10.2014. */
 public class ScalableImageIcon extends ImageIcon implements Scalable {
   private boolean scaled = false;
 
@@ -43,8 +40,7 @@ public class ScalableImageIcon extends ImageIcon implements Scalable {
     super(imageData);
   }
 
-  public ScalableImageIcon() {
-  }
+  public ScalableImageIcon() {}
 
   public boolean isScaled() {
     return scaled;
@@ -61,5 +57,4 @@ public class ScalableImageIcon extends ImageIcon implements Scalable {
     scaleController.scale(this);
     scaled = true;
   }
-
 }

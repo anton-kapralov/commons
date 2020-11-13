@@ -7,9 +7,7 @@
 
 package kae.util.swing;
 
-/**
- * @author A. Kapralov 11.01.12 10:28
- */
+/** @author A. Kapralov 11.01.12 10:28 */
 public class TableCellComboBoxIdentifiableValue {
 
   private long id;
@@ -42,7 +40,6 @@ public class TableCellComboBoxIdentifiableValue {
     TableCellComboBoxIdentifiableValue that = (TableCellComboBoxIdentifiableValue) o;
 
     return id == that.id;
-
   }
 
   @Override
@@ -50,7 +47,6 @@ public class TableCellComboBoxIdentifiableValue {
     return (int) (id ^ (id >>> 32));
   }
 
-  public static final TableCellComboBoxIdentifiableValue
-      EMPTY = new TableCellComboBoxIdentifiableValue(0, "");
-
+  public static final TableCellComboBoxIdentifiableValue EMPTY =
+      new TableCellComboBoxIdentifiableValue(0, "");
 }

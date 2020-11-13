@@ -11,10 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author A. Kapralov
- * 22.03.13 16:35
- */
+/** @author A. Kapralov 22.03.13 16:35 */
 public class SQLUtils {
 
   public static String makeMask(String s) {
@@ -41,7 +38,8 @@ public class SQLUtils {
     }
   }
 
-  public static void setLimit(PreparedStatement st, int parIdx, long first, int max) throws SQLException {
+  public static void setLimit(PreparedStatement st, int parIdx, long first, int max)
+      throws SQLException {
     if (first > 0 && max > 0) {
       st.setLong(++parIdx, first);
       st.setInt(++parIdx, max);

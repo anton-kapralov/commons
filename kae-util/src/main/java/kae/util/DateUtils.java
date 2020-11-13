@@ -10,9 +10,7 @@ package kae.util;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * @author A. Kapralov 22.06.2010 15:03:10
- */
+/** @author A. Kapralov 22.06.2010 15:03:10 */
 public class DateUtils {
 
   public static String toUnixTimeString(Date date) {
@@ -54,11 +52,10 @@ public class DateUtils {
   }
 
   /**
-   * Используется для тех случаев, когда тип даты является наследником от java.util.Date,
-   * но не сериализуется.
+   * Используется для тех случаев, когда тип даты является наследником от java.util.Date, но не
+   * сериализуется.
    */
   public static Date recreate(Date source) {
     return source != null ? new Date(source.getTime()) : null;
   }
-
 }
